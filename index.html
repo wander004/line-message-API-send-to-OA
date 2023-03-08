@@ -1,0 +1,21 @@
+function run()
+{
+  var channelToken = 'sZETFrjo8GCAZWyj28QeAv4chUjP/p0Y14cRAtcPgS4G9TkkHwyTquVJJTxGBuwn+gn7ZvfPRIUCAb5V2sIIxausYY07NP6Oqp4CNck8liSJw9+ojxGUw7HsTcikD2NiNl8Q/XTgQE3vvfOc9QyH0gdB04t89/1O/w1cDnyilFU=';
+
+  var msg = 'ทดสอบระบบแจ้งเตือนอัติโนมัติ';
+  var usrId = 'Ub85079f24de06b5cc8c0c344e178d69c';
+  
+  var opt = {
+    'headers': {
+      'Content-Type': 'application/json; charset=UTF-8',
+      'Authorization': 'Bearer ' + channelToken,
+    },
+    'method': 'post',
+    'payload': JSON.stringify({
+      'to': usrId,
+      'messages': [{'type': 'text', 'text': msg}]
+    })
+  };
+
+  UrlFetchApp.fetch('https://api.line.me/v2/bot/message/push', opt);
+}
