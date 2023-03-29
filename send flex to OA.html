@@ -55,3 +55,43 @@ function doPost(e) {
   var replyJSON = ContentService.createTextOutput(JSON.stringify(result)).setMimeType(ContentService.MimeType.JSON);
   return replyJSON;
 }
+
+//send normal text example
+/*
+function doPost(e) {
+  var data = JSON.parse(e.postData.contents)
+  //var userMsg = data.originalDetectIntentRequest.payload.data.message.text;
+  //var values = sheet.getRange(2, 2, sheet.getLastRow(),sheet.getLastColumn()).getValues(); //ค้นหาจาก column2 เริ่มจาก row2
+
+  var result = {
+    "fulfillmentMessages": [
+      {
+        "platform": "line",
+        "type": 4,
+        "payload" : {
+          "line":  {
+            "type": "text",
+            "text": "เลือกเพื่อค้นหาต่อ"
+            ,"quickReply": { // ②
+              "items": [
+                {
+                  "type": "action", // ③
+                  "imageUrl": "https://cdn.iconscout.com/icon/premium/png-256-thumb/data-339-207876.png",
+                  "action": {
+                    "type": "message",
+                    "label": "#test",
+                    "text": "#test"
+                  }
+                }
+              ]
+            }
+          }  
+        }
+      }
+    ]
+  }
+      
+  var replyJSON = ContentService.createTextOutput(JSON.stringify(result)).setMimeType(ContentService.MimeType.JSON);
+  return replyJSON;
+}
+*/
